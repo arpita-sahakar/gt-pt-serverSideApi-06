@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy API</title>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Example queryURL for Giphy API
+    var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=Ulz7aBtaqZvIJs2EGDT72L1VA9DHsUuC";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      // console.log(response.data[i].images.fixed_width.url);
+      for(var i = 0; i<response.data.length; i++);
+      
+      var currentImg = $("<img>");
+      currentImg.attr("src", response.data[i].Images.fixed_width.url);
+      $("body").append(currentImg);
+    });
+  </script>
+
+</body>
+
+</html>

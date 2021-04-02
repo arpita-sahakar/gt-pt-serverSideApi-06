@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bujumbura Data</title>
+</head>
+
+<body>
+  <!-- Retrieved data will be dumped here -->
+  <div class="city"></div>
+  <div class="wind"></div>
+  <div class="humidity"></div>
+  <div class="temp"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  var APIKey = "4f3f7a627f3b8732c634457322a20ef0";
+  var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=atlanta&appid=" + APIKey;
+
+  $.ajax({
+    url : queryUrl,
+    method : "GET"
+  }).then(function(response){
+      console.log(response);
+      $(".city").text("name" + response.name);
+    $(".wind").text("wind"+ response.wind.speed);
+    $(".humidity").text("humi"+ response.main.humidity);
+    $(".temp").text("temp" + response.main.temp_max);
+  });
+    // Things to accomplish:
+    // Get an API Key from OpenWeatherMap API
+    // Create an AJAX call to retrieve data. Log the data in console
+    // Log the data in HTML
+ 
+
+
+
+
+    // Scream Ushindi (victory in Swahili)! at the top of your lungs
+  </script>
+
+</body>
+
+</html>
